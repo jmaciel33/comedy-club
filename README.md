@@ -14,10 +14,7 @@
 
 ## How to?
 
-### Pré-requisitos
-
 Follow this steps before launch application
-
 
 #### Environment variables
 
