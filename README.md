@@ -8,9 +8,13 @@
 
 
 ## Architecture
-
+The main feature of “Hexagonal Architecture”, as opposed to the common layered architecture style, 
+is that the dependencies between our components point “inward”, towards our domain objects:
 
 ![Hexagonal Architecture](https://github.com/jmaciel33/comedy-club/blob/main/images/hexagonal-architecture.png)
+
+The hexagon is just a fancy way to describe the core of the application that is made up of domain objects, 
+use cases that operate on them, and input and output ports that provide an interface to the outside world.
 
 ## How to?
 
