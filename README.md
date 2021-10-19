@@ -10,7 +10,7 @@
 ## Architecture
 
 
-![Hexagonal Architecture](https://github.com/jmaciel33/comedy-club/blob/master/images/hexagonal-architecture.png)
+![Hexagonal Architecture](https://github.com/jmaciel33/comedy-club/blob/main/images/hexagonal-architecture.png)
 
 ## How to?
 
