@@ -1,0 +1,10 @@
+openapi: 3.0.1
+info:
+  description: "The Comedy Club API."
+  version: "1.0.0"
+  title: "Comedy Club API"
+servers:
+  - url: http://localhost:8080/comedy-club/v1
+tags:
+  - name: "Comedy-Club"
+    description: "Comedy Club API"
