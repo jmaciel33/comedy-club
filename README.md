@@ -46,3 +46,8 @@ comedy-club-api:latest
 ## Run in Postman
 
 [![Run in Postman](https://run.pstmn.io/button.svg)]()
+
+## References
+
+[Hexagonal Architecture with Java and Spring](https://reflectoring.io/spring-hexagonal/)
+[Buckpal](https://github.com/thombergs/buckpal)
