@@ -4,7 +4,7 @@
 
 - Java
 - Spring Boot
-- MongoDB
+- CockroachDB
 
 
 ## Architecture
