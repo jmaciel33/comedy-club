@@ -38,12 +38,23 @@ Build image 🔨
 docker build . -t comedy-club-api:latest
 ```
 
-This will start 🚀 the container
+It will start 🚀 the database
+
+```
+docker run -d \
+--name=comedy-club \
+-p 26257:26257 -p 8083:8080 \
+cockroachdb/cockroach:latest start-single-node \
+--insecure
+```
+
+It will start 🚀 the container
 
 ```
 docker run -d -p 8080:8080 -it --name comedy-club-api \
 comedy-club-api:latest
 ```
+
 ## Run in Postman
 
 [![Run in Postman](https://run.pstmn.io/button.svg)]()
