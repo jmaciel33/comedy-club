@@ -4,7 +4,185 @@ info:
   version: "1.0.0"
   title: "Comedy Club API"
 servers:
-  - url: http://localhost:8080/comedy-club/v1
+  - url: http://localhost:8081/comedy-club/
 tags:
   - name: "Comedy-Club"
     description: "Comedy Club API"
+paths:
+  /club/{name}:
+    post:
+      summary: 'Create Club.'
+      tags:
+        - Comedy-Club
+      parameters:
+        - in: path
+          required: true
+          name: name
+          schema:
+            description: 'Club name'
+            type: string
+            example: "Comedians"
+      responses:
+        '200':
+          description: 'Response: Club'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/club'
+        '404':
+          description: 'Response: Club was not identified'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NotFound'
+  /club/{id}:
+    get:
+      summary: 'Get club by id.'
+      tags:
+        - Comedy-Club
+      parameters:
+        - in: path
+          required: true
+          name: id
+          schema:
+            description: 'Club Id'
+            type: uuid
+            example: '412968c0-cbcd-4b54-a16d-54fb6ca465db'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                description: Search results.
+                items:
+                  $ref: '#/components/schemas/club'
+        '404':
+          description: 'Response: Club was not identified'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NotFound'
+    delete:
+      summary: 'Delete club by id.'
+      tags:
+        - Comedy-Club
+      parameters:
+        - in: path
+          required: true
+          name: id
+          schema:
+            description: 'Club Id'
+            type: uuid
+            example: '412968c0-cbcd-4b54-a16d-54fb6ca465db'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                description: Search results.
+                items:
+                  $ref: '#/components/schemas/club'
+        '404':
+          description: 'Response: Club was not identified'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NotFound'
+  /club:
+    get:
+      summary: 'Get all clubs.'
+      tags:
+        - Comedy-Club
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                description: Search results.
+                items:
+                  $ref: '#/components/schemas/club'
+        '404':
+          description: 'Response: Club was not identified'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NotFound'
+    put:
+      summary: 'Update Club.'
+      tags:
+        - Comedy-Club
+      parameters:
+        - in: body
+          required: true
+          name: club
+          schema:
+            type: object
+            properties:
+              id:
+                type: uuid
+                description: Club Id.
+                example: '412968c0-cbcd-4b54-a16d-54fb6ca465db'
+              name:
+                type: string
+                description: 'Club Name.'
+                example: Comedians
+              createdAt:
+                type: string
+                format: date
+                example: '1984-08-27'
+                description: 'Creation date.'
+      responses:
+        '200':
+          description: 'Response: Club'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/club'
+        '404':
+          description: 'Response: Club was not identified'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NotFound'
+components:
+  schemas:
+    NotFound:
+      type: object
+      required:
+        - code
+        - message
+      properties:
+        code:
+          type: number
+          example: 404
+        message:
+          type: string
+          example: Could not find information for the Club identifier entered
+    club:
+      title: Club
+      type: object
+      description: Comedy Club.
+      properties:
+        id:
+          type: uuid
+          description: Club Id.
+          example: '412968c0-cbcd-4b54-a16d-54fb6ca465db'
+        name:
+          type: string
+          description: 'Club Name.'
+          example: Comedians
+        createdAt:
+          type: string
+          format: date
+          example: '1984-08-27'
+          description: 'Creation date.'
+      required:
+        - id
+        - name
+        - createdAt

@@ -17,9 +17,11 @@ public class ClubController {
         this.clubUseCase = clubUseCase;
     }
 
-    @PostMapping
-    private Club save(@RequestBody Club club) {
-        return this.clubUseCase.save(club);
+    @PostMapping("{name}")
+    private Club save(@PathVariable String name) {
+        return this.clubUseCase.save(new Club.Builder()
+                .withName(name)
+                .build());
     }
 
     @GetMapping("{id}")
