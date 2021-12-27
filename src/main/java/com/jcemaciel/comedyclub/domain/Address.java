@@ -19,6 +19,14 @@ public class Address {
         this.createdAt = createdAt;
     }
 
+    public Address(Builder builder) {
+        this.id = builder.id;
+        this.clubId = builder.clubId;
+        this.name = builder.name;
+        this.address = builder.address;
+        this.createdAt = builder.createdAt;
+    }
+
     public UUID getId() {
         return id;
     }
@@ -61,7 +69,39 @@ public class Address {
 
     public static class Builder {
 
+        private UUID id;
+        private UUID clubId;
+        private String name;
+        private String address;
+        private Date createdAt;
+
+        public Builder withId(UUID id) {
+            this.id = id;
+            return this;
+        }
+
+        public Builder withClubId(UUID clubId) {
+            this.clubId = clubId;
+            return this;
+        }
+
+        public Builder withName(String name) {
+            this.name = name;
+            return this;
+        }
+
+        public Builder withAddress(String address) {
+            this.address = address;
+            return this;
+        }
+
+        public Builder withCreatedAt(Date createdAt) {
+            this.createdAt = createdAt;
+            return this;
+        }
+
+        public Address build() {
+            return new Address(this);
+        }
     }
-
-
 }

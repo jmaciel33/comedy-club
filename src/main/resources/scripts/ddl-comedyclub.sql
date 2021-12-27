@@ -2,7 +2,7 @@ CREATE TABLE "club"
 (
     "id"         uuid PRIMARY KEY,
     "name"       text,
-    "created_at" timestamp
+    "created_at" date
 );
 
 CREATE TABLE "address"
@@ -11,7 +11,7 @@ CREATE TABLE "address"
     "club_id"    uuid,
     "name"       text,
     "address"    text,
-    "created_at" timestamp
+    "created_at" date
 );
 
 CREATE TABLE "event"
@@ -20,7 +20,7 @@ CREATE TABLE "event"
     "club_id"    uuid,
     "name"       text,
     "event_date" date,
-    "created_at" timestamp
+    "created_at" date
 );
 
 CREATE TABLE "event_comedian"
@@ -35,7 +35,7 @@ CREATE TABLE "comedian"
     "id"         uuid PRIMARY KEY,
     "name"       text,
     "club_id"    uuid,
-    "created_at" timestamp
+    "created_at" date
 );
 
 ALTER TABLE "address"
