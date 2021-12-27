@@ -1,8 +1,8 @@
 package com.jcemaciel.comedyclub.domain;
 
-public class ClubException extends RuntimeException {
+public class ComedyClubException extends RuntimeException {
 
-    public ClubException(final int status, final String message) {
+    public ComedyClubException(final int status, final String message) {
         super(message);
         this.status = status;
     }

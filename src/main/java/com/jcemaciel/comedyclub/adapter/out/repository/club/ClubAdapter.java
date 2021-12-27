@@ -2,7 +2,7 @@ package com.jcemaciel.comedyclub.adapter.out.repository.club;
 
 import com.jcemaciel.comedyclub.application.port.out.ClubPort;
 import com.jcemaciel.comedyclub.domain.Club;
-import com.jcemaciel.comedyclub.domain.ClubException;
+import com.jcemaciel.comedyclub.domain.ComedyClubException;
 
 import java.util.List;
 import java.util.Optional;
@@ -50,7 +50,7 @@ public class ClubAdapter implements ClubPort {
                     .withCreatedAt(optionalClubEntity.get().getCreatedAt())
                     .build();
         } else {
-            throw new ClubException(404, "Club not found");
+            throw new ComedyClubException(404, "Club not found");
         }
     }
 
@@ -60,7 +60,7 @@ public class ClubAdapter implements ClubPort {
         if (optionalClubEntity.isPresent()) {
             this.clubRepository.delete(optionalClubEntity.get());
         } else {
-            throw new ClubException(404, "Club not found");
+            throw new ComedyClubException(404, "Club not found");
         }
     }
 }
