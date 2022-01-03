@@ -1,0 +1,46 @@
+Table club {
+  id uuid [pk]
+  name text
+  created_at timestamp
+}
+
+Table address {
+  id uuid [pk]
+  club_id uuid
+  name text
+  address text
+  created_at timestamp
+}
+
+Table event {
+  id uuid [pk]
+  club_id uuid
+  name text
+  event_date date
+  created_at timestamp
+}
+
+Table event_comedian {
+  id uuid [pk]
+  comedian_id uuid
+  event_id uuid
+  created_at timestamp
+}
+
+Table comedian {
+  id uuid [pk]
+  name text
+  club_id uuid
+  created_at timestamp
+}
+
+
+Ref: "club"."id" < "address"."id"
+
+Ref: "club"."id" < "comedian"."club_id"
+
+Ref: "club"."id" < "event"."club_id"
+
+Ref: "comedian"."id" < "event_comedian"."comedian_id"
+
+Ref: "event"."id" < "event_comedian"."event_id"
