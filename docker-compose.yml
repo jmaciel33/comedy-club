@@ -8,3 +8,8 @@ services:
       - "26257:26257"
       - "8080:8080"
     command: start-single-node --insecure
+    ulimits:
+      nproc: 65535
+      nofile:
+        soft: 20000
+        hard: 40000
